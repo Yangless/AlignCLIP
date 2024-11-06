@@ -1,0 +1,4 @@
+# ninja log v6
+1	86721	7521746473611118	E:/Code/DINO-main/models/dino/ops/build/temp.win-amd64-cpython-312/Release/Code/DINO-main/models/dino/ops/src/cpu/ms_deform_attn_cpu.obj	df617a037f5a4613
+34	96353	7521746473932033	E:/Code/DINO-main/models/dino/ops/build/temp.win-amd64-cpython-312/Release/Code/DINO-main/models/dino/ops/src/vision.obj	bf34089371b9f5ed
+10	99339	7521746473702094	E:/Code/DINO-main/models/dino/ops/build/temp.win-amd64-cpython-312/Release/Code/DINO-main/models/dino/ops/src/cuda/ms_deform_attn_cuda.obj	29bb9f6ca45cc277
