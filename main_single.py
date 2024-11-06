@@ -31,6 +31,7 @@ def train(train_loader, model, optimizer, epoch):
         images = images.to(device)
         texts = texts.to(device)
         #
+        print(f"Iteration {i + 1}")
         # # Encode image and text features
         # image_features = model.encode_image(images)
         # text_features = model.encode_text(texts)
@@ -61,7 +62,7 @@ def train(train_loader, model, optimizer, epoch):
         row_means = logits_per_text.mean(dim=1)  # Calculate mean similarity score for each row
         top_k_indices = torch.topk(row_means, k=args.batch_size_test, dim=0).indices  # Get indices of top 16 rows
         top_k_logits_per_text = logits_per_text[top_k_indices, :]  # Select top 16 rows
-        print(logits_per_text.shape,top_k_logits_per_text.shape)
+        # print(logits_per_text.shape,top_k_logits_per_text.shape)
         # Compute loss
         labels = torch.arange(len(images)).to(device)
         loss_i = criterion(logits_per_image, labels)
@@ -116,7 +117,7 @@ def main():
 
     # Training loop
     # for epoch in range(args.epochs):
-    for epoch in range(2):
+    for epoch in range(1):
         # Train for one epoch
         train_loss, train_accuracy = train(train_loader, model, optimizer, epoch)
 
