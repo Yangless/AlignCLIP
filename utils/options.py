@@ -40,7 +40,7 @@ parser.add_argument(
 parser.add_argument(
     '--precision',
     choices=['amp', 'fp16', 'fp32'],
-    default='amp',
+    default='fp32',
     help='choose value precision')
 
 parser.add_argument(
