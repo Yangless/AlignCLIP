@@ -28,6 +28,7 @@ def train(train_loader, model, optimizer, epoch):
     total_samples = 0
 
     for i, (images, texts) in enumerate(train_loader):
+        # len(texts)
         images = images.to(device)
         texts = texts.to(device)
         #
@@ -60,7 +61,8 @@ def train(train_loader, model, optimizer, epoch):
         # For text-to-image, select the top 16 rows with the highest average similarity scores
         logits_per_text = text_features @ image_features.T
         row_means = logits_per_text.mean(dim=1)  # Calculate mean similarity score for each row
-        top_k_indices = torch.topk(row_means, k=args.batch_size_test, dim=0).indices  # Get indices of top 16 rows
+        #fix bug ,when last batch size is less than 16
+        top_k_indices = torch.topk(row_means, k=len(texts), dim=0).indices  # Get indices of top 16 rows
         top_k_logits_per_text = logits_per_text[top_k_indices, :]  # Select top 16 rows
         # print(logits_per_text.shape,top_k_logits_per_text.shape)
         # Compute loss
@@ -106,7 +108,7 @@ def main():
     criterion = nn.CrossEntropyLoss()
 
     # optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
-    optimizer = torch.optim.AdamW(model.parameters(), lr=0.01, weight_decay=0.0001)
+    optimizer = torch.optim.AdamW(model.parameters(), lr = args.lr, weight_decay = args.weight_decay)
     # scaler = GradScaler() if args.mixed_precision else None
 
 
@@ -117,7 +119,7 @@ def main():
 
     # Training loop
     # for epoch in range(args.epochs):
-    for epoch in range(1):
+    for epoch in range(args.epochs):
         # Train for one epoch
         train_loss, train_accuracy = train(train_loader, model, optimizer, epoch)
 
@@ -128,7 +130,8 @@ def main():
             print(f"Validation Prec@1: {val_top1:.2f}% Prec@5: {val_top5:.2f}%")
 
         # Save checkpoint after every epoch
-        if args.save_checkpoint:
+        args.checkpoint_dir = "./ckpts"
+        if args.checkpoint_dir:
             checkpoint_path = os.path.join(args.checkpoint_dir, f'checkpoint_epoch_{epoch + 1}.pth')
             torch.save({
                 'epoch': epoch + 1,

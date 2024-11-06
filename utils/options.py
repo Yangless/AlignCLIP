@@ -111,4 +111,31 @@ parser.add_argument(
     help='template language in zeershot'
 )
 
+parser.add_argument(
+    '--lr',
+    default='0.01',
+    type=float,
+    help='learning rate'
+)
+
+parser.add_argument(
+    '--weight_decay',
+    default='1e4',
+    type=float,
+    help='weight decay'
+)
+
+parser.add_argument(
+    '--epochs',
+    default='20',
+    type=int,
+    help='epochs'
+)
+parser.add_argument(
+    '--checkpoint_dir',
+    default='./ckpts',
+    type=str,
+    help='save checkpoint dir'
+)
+
 args = parser.parse_args()

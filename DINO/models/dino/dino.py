@@ -1010,7 +1010,6 @@ def build_dino(args):
     #     num_classes = 51
     num_classes = args.num_classes
     device = torch.device(args.device)
-    print("dino")
     backbone = build_backbone(args)
 
     transformer = build_deformable_transformer(args)
@@ -1141,7 +1140,6 @@ def build_dino(args):
     #     num_classes = 51
     num_classes = args.num_classes
     device = torch.device(args.device)
-    print("dino_demooooo")
     backbone = build_backbone(args)
 
     transformer = build_deformable_transformer(args)
