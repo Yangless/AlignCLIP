@@ -21,14 +21,14 @@ parser.add_argument(
 
 parser.add_argument(
     '--seed',
-    default=0,
+    default=43,
     type=int,
     help='random seed, set to 0 to disable')
 
 parser.add_argument(
     '--visual_model',
     type=str,
-    default='RN50',
+    default='ViT-B/16',
     help='visual model (RN50|RN50x4|RN50x16|RN50x64|RN101|ViT-L/14-336px|ViT-L/14|ViT-B/16|ViT-B/32)')
 
 parser.add_argument(
