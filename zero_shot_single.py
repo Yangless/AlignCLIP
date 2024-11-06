@@ -61,15 +61,15 @@ def get_image_features(model, dataloader, args):
 
 
         DINO_embeddings = get_dino_features(image.cuda())
-        print("DINO_embeddings.shape",DINO_embeddings.shape)
+        # print("DINO_embeddings.shape",DINO_embeddings.shape)
 
         image_embeddings = model.encode_image(image)
-        print("image_embeddings.shape", image_embeddings.shape)
+        # print("image_embeddings.shape", image_embeddings.shape)
         #* logits are already multiplied on text features
         image_embeddings /= image_embeddings.norm(dim=-1, keepdim=True)
-        print("image_embeddings.shape",image_embeddings.shape)
+        # print("image_embeddings.shape",image_embeddings.shape)
         Align_embeddings = model.Align_encoder(image_embeddings,DINO_embeddings)
-        print(Align_embeddings)
+        # print(Align_embeddings)
 
         image_features.append(torch.cat([image_embeddings, target.unsqueeze(1)], dim=1))
     image_features = torch.cat(image_features, dim=0)
