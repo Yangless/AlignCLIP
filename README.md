@@ -4,7 +4,24 @@
 
 ## Introduction
 
-![创新点1](D:\wjl\postgraduate\记事本\Typora_Y_image\创新点1.jpg)
+![Overview](D:\wjl\postgraduate\记事本\Typora_Y_image\Overview.jpg)
+
+## Data Preparation
+
+By default, for training, testing and demo, we use  [HAKE](https://github.com/DirtyHarryLYL/HAKE) dataset.
+
+Instance-level part state annotations on [HICO-DET](http://www-personal.umich.edu/~ywchao/hico/) are also available.
+
+The labels are packaged in **Annotations/hico-det-instance-level.tar.gz**, you could use:
+
+```
+cd Annotations
+tar zxvf hico-det-instance-level.tar.gz
+```
+
+to unzip them and get hico-det-training-set-instance-level.json for train set of HICO-DET respectively. More details about the format are shown in [Dataset format](https://github.com/DirtyHarryLYL/HAKE/blob/master/Annotations/README.md).
+
+The HICO-DET dataset can be found here: [HICO-DET](http://www-personal.umich.edu/~ywchao/hico/).
 
 ## Model-Zoo
 
@@ -12,7 +29,17 @@
 
 ## Inference
 
+Stanford40：
+
+demo_Stanford40.py
+
+ILSVRC2012:
+
 demo.py
+
+HAKE:
+
+main_singel_hake.py
 
 ## Evaluation
 
