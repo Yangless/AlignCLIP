@@ -4,7 +4,7 @@
 
 ## Introduction
 
-![Overview](D:\wjl\postgraduate\记事本\Typora_Y_image\Overview.jpg)
+![Overview](https://github.com/Yangless/AlignCLIP/blob/master/Overview.jpg)
 
 ## Data Preparation
 
