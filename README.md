@@ -29,15 +29,15 @@ The HICO-DET dataset can be found here: [HICO-DET](http://www-personal.umich.edu
 
 ## Inference
 
-Stanford40：
+#### Stanford40：
 
 demo_Stanford40.py
 
-ILSVRC2012:
+#### ILSVRC2012:
 
 demo.py
 
-HAKE:
+#### HAKE:
 
 main_singel_hake.py
 
