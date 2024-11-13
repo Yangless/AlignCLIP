@@ -213,7 +213,7 @@ class HAKEDataset:
 
 
 def build(split, args):
-    root = "D:/Y/HAKE-Action-Torch-CLIP-Activity2Vec/data/hake"
+    root = "D:/Y/data-Action-Torch-CLIP-Activity2Vec/data/hake"
    # root = args.data_root
     PATHS = {
         "train": (root, root + '/hake_train_img.json'),
