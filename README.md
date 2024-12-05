@@ -43,7 +43,14 @@ main_singel_hake.py
 
 ## Evaluation
 
+#### imagenet：
+
+zero_shot_single.py
+
 see utils/options.py
+
+#### See more datasets
+
 
 ```shell
 train:
